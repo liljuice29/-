@@ -35,7 +35,9 @@ int main()
 
 			break;
 		case 0://退出系统
-
+			cout << "欢迎下次使用" << endl;
+			system("pause");
+			return 0;
 			break;
 
 		default:
