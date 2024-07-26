@@ -2,7 +2,8 @@
 #include<iostream>
 using namespace std;
 #include"identity.h"
-
+#include<fstream>
+#include"orderfile.h"
 //学生类
 class student :public identity
 {
@@ -29,6 +30,7 @@ public:
 	//学生学号
 	int id;
 
-
+	//机房容器
+	vector<computerroom>vcom;
 
 };

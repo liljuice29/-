@@ -1,7 +1,9 @@
 #pragma once
 #include<iostream>
 using namespace std;
-
+#include"globalfile.h"
+#include"computerroom.h"
+#include<vector>
 //身份抽象的基类
 class identity
 {
