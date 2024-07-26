@@ -4,6 +4,9 @@ using namespace std;
 #include"identity.h"
 #include<fstream>
 #include"globalfile.h"
+#include<vector>
+#include"student.h"
+#include"teacher.h"
 
 class manager :public identity
 {
@@ -23,8 +26,16 @@ public:
 	//清空预约记录
 	void cleanfile();
 
+	//初始化容器
+	void initvector();
 
+	//学生容器
+	vector<student>vstu;
+	//老师容器
+	vector<teacher>vtea;
 
+	//检测重复
+	bool checkrepeat(int id, int type);
 
 
 
