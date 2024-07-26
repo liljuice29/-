@@ -13,6 +13,16 @@ manager::manager(string name, string pwd)
 
 	//初始化容器 获取文件中老师学生信息
 	this->initvector();
+
+	//初始化机房信息
+	ifstream ifs;
+	ifs.open(computer_file, ios::in);
+	computerroom com;
+	while (ifs >> com.comid && ifs >> com.maxnum)
+	{
+		vcom.push_back(com);
+	}
+	ifs.close();
 }
 
 //菜单界面
@@ -138,12 +148,24 @@ void manager::showperson()
 //查看机房信息
 void manager::showcomputer()
 {
+	cout << "机房的信息如下" << endl;
+	for (vector<computerroom>::iterator it = vcom.begin(); it != vcom.end(); it++)
+	{
+		cout << "机房编号:" << it->comid << "  机房最大容量：" << it->maxnum << endl;
+	}
+	system("pause");
+	system("cls");
 
 }
 //清空预约记录
 void manager::cleanfile()
 {
+	ofstream ofs(order_file, ios::trunc);
+	ofs.close();
 
+	cout << "清空成功" << endl;
+	system("pause");
+	system("cls");
 }
 
 //初始化容器

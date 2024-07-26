@@ -8,7 +8,7 @@ using namespace std;
 #include"student.h"
 #include"teacher.h"
 #include<algorithm>
-
+#include"computerroom.h"
 class manager :public identity
 {
 public:
@@ -38,7 +38,8 @@ public:
 	//检测重复
 	bool checkrepeat(int id, int type);
 
-
+	//机房信息
+	vector<computerroom>vcom;
 
 
 };

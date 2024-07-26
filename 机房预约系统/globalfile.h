@@ -7,6 +7,6 @@
 //教师文件
 #define teacher_file "teacher.txt"
 //机房信息文件
-#define computer_filw "computerroom.txt"
+#define computer_file "computerroom.txt"
 //订单文件
-#define drder_file "order.txt"
+#define order_file "order.txt"
