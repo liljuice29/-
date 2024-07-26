@@ -99,9 +99,40 @@ void manager::addperson()
 	this->initvector();
 
 }
+
+void printstudent(student& s)
+{
+	cout << "学号:" << s.id << "  姓名:" << s.name << "  密码:" << s.pwd << endl;
+}
+
+void printteacher(teacher& s)
+{
+	cout << "职工号:" << s.empid << "  姓名:" << s.name << "  密码:" << s.pwd << endl;
+}
+
+
 //查看账号
 void manager::showperson()
 {
+	cout << "请选择查看的内容" << endl;
+	cout << "1  学生   2  老师" << endl;
+	int select = 0;
+	cin >> select;
+	if (select == 1)
+	{
+		//查看学生
+		cout << "所有学生信息如下" << endl;
+		for_each(vstu.begin(), vstu.end(), printstudent);
+	}
+	else
+	{
+		//查看老师
+		cout << "所有老师信息如下" << endl;
+		for_each(vtea.begin(), vtea.end(), printteacher);
+	}
+	system("pause");
+	system("cls");
+
 
 }
 //查看机房信息
