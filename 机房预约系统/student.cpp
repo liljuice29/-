@@ -215,5 +215,73 @@ void student::showallorder()
 //取消预约
 void student::cancelorder()
 {
+	orderfile of;
+	if (of.size == 0)
+	{
+		cout << "无预约记录" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	cout << "审核中或预约成功的记录可以取消，请输入取消的记录" << endl;
+	int index = 1;
+	vector<int>v;
+	for (int i = 0; i < of.size; i++)
+	{
+		//先判断是自身学号
+		if (this->id == atoi(of.orderdata[i]["stuid"].c_str()))
+		{
+			//再筛选状态
+			if (of.orderdata[i]["status"] == "1" || of.orderdata[i]["status"] == "2")
+			{
+				v.push_back(i);
+				cout << index++ << ",";
+				cout << "预约日期:周" << of.orderdata[i]["date"];
+				cout << "时间段:"<<(of.orderdata[i]["status"] == "1" ? "上午" : "下午");
+				cout << "机房编号:" << of.orderdata[i]["roomid"];
+				string status = "状态 :";
+				if (of.orderdata[i]["status"] == "1")
+				{
+					status += "审核中";
+				}
+				else if (of.orderdata[i]["status"] == "2")
+				{
+					status += "预约成功";
+				}
+				cout << status << endl;
+
+			}
+
+		}
+	}
+
+	cout << "请输入取消的记录,0代表返回" << endl;
+	int select = 0;
+	while (true)
+	{
+		cin >> select;
+		if (select >= 0 && select <= v.size())
+		{
+			if (select == 0)
+			{
+				break;
+			}
+			else
+			{
+				of.orderdata[v[select - 1]]["status"] = "0";
+				of.updateorder();
+				cout << "已取消预约" << endl;
+				break;
+			}
+
+
+
+
+		}
+		cout << "输入有误，请重新操作" << endl;
+	}
+	system("oayse");
+	system("cls");
 
 }
