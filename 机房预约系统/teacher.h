@@ -2,14 +2,14 @@
 #include<iostream>
 using namespace std;
 #include"identity.h"
-
+#include"orderfile.h"
 class teacher :public identity
 {
 public:
 	//默认构造
 	teacher();
 	//有参构造
-	teacher(int emid, string name, string pwd);
+	teacher(int emipd, string name, string pwd);
 	//菜单界面
 	virtual void opermenu();
 

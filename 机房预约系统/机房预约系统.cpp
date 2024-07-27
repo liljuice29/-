@@ -7,6 +7,46 @@
 #include"manager.h"
 using namespace std;
 
+//老师子菜单界面
+void teachermenu(identity*& teachers)
+{
+	while (true)
+	{
+		teachers->opermenu();
+		teacher* tea = (teacher*)teachers;
+		int select = 0;
+		cin >> select;
+		if (select == 1)
+		{
+			tea->showallorder();
+
+		}
+		else if (select == 2)
+		{
+			tea->validorder();
+		}
+		else
+		{
+			delete teachers;
+			cout << "注销成功" << endl;
+			system("pause");
+			system("cls");
+			return;
+
+
+		}
+
+
+	}
+
+
+
+
+}
+
+
+
+
 //学生子菜单界面
 void studentmenu(identity* &students)
 {
@@ -184,7 +224,7 @@ void loginin(string filename, int type)
 				system("cls");
 				person = new teacher(id, name, pwd);
 				//进入到老师身份的子菜单
-
+				teachermenu(person);
 
 				return;
 			}
